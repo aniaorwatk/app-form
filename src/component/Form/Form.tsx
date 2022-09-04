@@ -1,26 +1,32 @@
 import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import Input from "../Input/Input";
 import "./From.scss";
 
-const Form =()=>{
+interface IFormInputs {}
 
-    return(
-<main>
-<div>
-<form action="">
+const Form = () => {
+  const {
+    register,
+    formState: { errors, dirtyFields, isValid, isSubmitted },
+    setError,
+    setValue,
+    handleSubmit,
+    watch,
+  } = useForm<IFormInputs>({});
 
+  const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
 
-    
-</form>
+  return (
+    <main>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            
 
+        </form>
+      </div>
+    </main>
+  );
+};
 
-
-
-
-</div>
-</main>
-    )
-
-
-}
-
-export default Form
+export default Form;
