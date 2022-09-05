@@ -3,9 +3,18 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "../Input/Input";
 import "./From.scss";
 
-interface IFormInputs {}
+interface IFormInputs {
+firstName: "string",
+lastName:"string",
+password: "string",
+repeatPassword: "string",
+}
 
 const Form = () => {
+
+
+
+
   const {
     register,
     formState: { errors, dirtyFields, isValid, isSubmitted },
@@ -21,7 +30,56 @@ const Form = () => {
     <main>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-            
+          <Input
+            errors={}
+            labelType={}
+            label={}
+            placeholder={}
+            inputType={}
+            inputRequired={}
+            nameInput={}
+            autocomplete={}
+          />
+
+          <Input
+            errors={}
+            labelType={}
+            label={}
+            placeholder={}
+            inputType={}
+            inputRequired={}
+            nameInput={}
+            autocomplete={}
+          />
+
+          <Input
+            errors={}
+            labelType={}
+            label={}
+            placeholder={}
+            inputType={}
+            inputRequired={}
+            eyeImage={}
+            altEyeInput={}
+            handleClick={}
+            nameInput={}
+            autocomplete={}
+          />
+
+          <Input
+            errors={}
+            labelType={}
+            label={}
+            placeholder={}
+            inputType={}
+            inputRequired={}
+            eyeImage={}
+            altEyeInput={}
+            handleClick={}
+            nameInput={}
+            autocomplete={}
+          />
+
 
         </form>
       </div>

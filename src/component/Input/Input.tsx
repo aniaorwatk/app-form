@@ -2,7 +2,7 @@ import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 interface IInputType {
-  errors: string | false | JSX.Element;
+  errors?: string | false | JSX.Element;
   labelType: string;
   label: string;
   placeholder: string;
