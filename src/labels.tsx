@@ -7,6 +7,15 @@ header:{
 },
 form:{
     buttonLabel: 'Wyślij formularz',
+    warningRequired: 'Pole jest Wymagane',
+    placeholderFirstName: 'Imię',
+    placeholderLastName: 'Nazwisko',
+    placeholderPassword: 'Hasło',
+    placeholderRepeatPassword: 'Powtórz hasło',
+    labelFirstName: 'Podaj Imię:',
+    labelLastName: 'Podaj Nzawisko',
+    labelPassword: 'Podaj hasło',
+    labelRepeatPassword: 'Powtórz hasło:'
 },
 
 }

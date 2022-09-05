@@ -1,19 +1,29 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import labels from "../../labels";
 import Input from "../Input/Input";
-import "./From.scss";
+import { getErrorFirstName, getErrorsLastName, getErrorsPassword, getErrorsRepeatPassword, nameInputs } from "./FormHandler";
+import ""
 
-interface IFormInputs {
-firstName: "string",
-lastName:"string",
-password: "string",
-repeatPassword: "string",
+export interface IFormInputs {
+  firstName: "string";
+  lastName: "string";
+  password: "string";
+  repeatPassword: "string";
+}
+
+const labelsType= {
+textLabelType: 'text'
+}
+
+const formInputsType= {
+  typeFirstName: 'firstName',
+  typeLastName: 'lastName',
+  typePassword: 'password',
+  typeRepeatPassword: 'repeatPassword'
 }
 
 const Form = () => {
-
-
-
 
   const {
     register,
@@ -24,6 +34,23 @@ const Form = () => {
     watch,
   } = useForm<IFormInputs>({});
 
+const inputFirstName =register('firstName',{
+  required: true,
+})
+
+const inputLastName =register('lastName',{
+  required: true,
+})
+
+const inputPassword =register('password',{
+  required: true,
+})
+
+const inputRepeatPassword =register('repeatPassword',{
+  required: true,
+})
+
+
   const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
 
   return (
@@ -31,56 +58,54 @@ const Form = () => {
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
-            errors={}
-            labelType={}
-            label={}
-            placeholder={}
-            inputType={}
-            inputRequired={}
-            nameInput={}
-            autocomplete={}
+            errors={getErrorFirstName({firstName: errors.firstName})}
+            labelType={labelsType.textLabelType}
+            label={labels.form.labelFirstName}
+            placeholder={labels.form.placeholderFirstName}
+            inputType={formInputsType.typeFirstName}
+            inputRequired={inputFirstName}
+            nameInput={nameInputs.nameFirstInput}
+
           />
 
           <Input
-            errors={}
-            labelType={}
-            label={}
-            placeholder={}
-            inputType={}
-            inputRequired={}
-            nameInput={}
-            autocomplete={}
+            errors={getErrorsLastName({lastName: errors.lastName})}
+            labelType={labelsType.textLabelType}
+            label={labels.form.labelLastName}
+            placeholder={labels.form.placeholderLastName}
+            inputType={formInputsType.typeLastName}
+            inputRequired={inputLastName}
+            nameInput={nameInputs.nameLastInput}
+ 
           />
 
           <Input
-            errors={}
-            labelType={}
-            label={}
-            placeholder={}
-            inputType={}
-            inputRequired={}
-            eyeImage={}
-            altEyeInput={}
-            handleClick={}
-            nameInput={}
-            autocomplete={}
+            errors={getErrorsPassword({password: errors.password})}
+            labelType={labelsType.textLabelType}
+            label={labels.form.labelPassword}
+            placeholder={labels.form.placeholderPassword}
+            inputType={formInputsType.typePassword}
+            inputRequired={inputPassword}
+            // eyeImage={}
+            // altEyeInput={}
+            // handleClick={}
+            nameInput={nameInputs.namePassword}
+
           />
 
           <Input
-            errors={}
-            labelType={}
-            label={}
-            placeholder={}
-            inputType={}
-            inputRequired={}
-            eyeImage={}
-            altEyeInput={}
-            handleClick={}
-            nameInput={}
-            autocomplete={}
+            errors={getErrorsRepeatPassword({repeatPassword: errors.repeatPassword})}
+            labelType={labelsType.textLabelType}
+            label={labels.form.labelRepeatPassword}
+            placeholder={labels.form.placeholderRepeatPassword}
+            inputType={formInputsType.typeRepeatPassword}
+            inputRequired={inputRepeatPassword}
+            // eyeImage={}
+            // altEyeInput={}
+            // handleClick={}
+            nameInput={nameInputs.nameRepeatPassword}
+
           />
-
-
         </form>
       </div>
     </main>
