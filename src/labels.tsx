@@ -7,6 +7,7 @@ header:{
 },
 form:{
     buttonLabel: 'Wyślij formularz',
+    registerTitle: 'Formularz rejestracyjny',
     warningRequired: 'Pole jest Wymagane',
     placeholderFirstName: 'Imię',
     placeholderLastName: 'Nazwisko',
@@ -17,8 +18,7 @@ form:{
     labelLastName: 'Podaj Nazwisko:',
     labelEmail: 'Podaj adres e-mail:',
     labelPassword: 'Podaj hasło:',
-    labelRepeatPassword: 'Powtórz hasło:'
-  
+    labelRepeatPassword: 'Powtórz hasło:' 
 },
 
 }
