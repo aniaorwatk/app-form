@@ -6,6 +6,7 @@ import labels from "../../labels";
 export const nameInputs ={
    nameFirstInput: "firstName",
     nameLastInput: "lastName",
+    nameEmail: "email",
 namePassword: "password",
 nameRepeatPassword: "repeatPassword",
 } 
@@ -38,6 +39,7 @@ export type FieldError = {
 export interface IErrors {
     firstName: 'string',
     lastName: 'string',
+    email: 'string'
     password: 'string',
     repeatPassword: 'string'
 }
@@ -81,5 +83,11 @@ export const getErrorsPassword =({password}:{password?:IErrorContentType })=>{
 export const getErrorsRepeatPassword =({repeatPassword}:{repeatPassword?:IErrorContentType })=>{
     return(
         repeatPassword?.type ===IErrorType.required && labels.form.warningRequired
+    )
+}
+
+export const getErrorsEmail =({email}:{email?:IErrorContentType })=>{
+    return(
+        email?.type ===IErrorType.required && labels.form.warningRequired
     )
 }

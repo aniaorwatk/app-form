@@ -2,28 +2,38 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import labels from "../../labels";
 import Input from "../Input/Input";
-import { getErrorFirstName, getErrorsLastName, getErrorsPassword, getErrorsRepeatPassword, nameInputs } from "./FormHandler";
-import ""
+import { getErrorFirstName, getErrorsEmail, getErrorsLastName, getErrorsPassword, getErrorsRepeatPassword, nameInputs } from "./FormHandler";
+import "./Form.scss"
+import ButtonPrimary from "../Buttons/ButtonPrimary";
 
 export interface IFormInputs {
   firstName: "string";
   lastName: "string";
+  email: "string";
   password: "string";
   repeatPassword: "string";
 }
 
 const labelsType= {
-textLabelType: 'text'
+textLabelType: 'text',
+emailLabelType: 'email'
 }
 
 const formInputsType= {
   typeFirstName: 'firstName',
   typeLastName: 'lastName',
+  typeEmail: 'email',
   typePassword: 'password',
   typeRepeatPassword: 'repeatPassword'
 }
 
+const button={
+  buttonClass: 'primary',
+}
+
 const Form = () => {
+
+  const buttonType = 'submit';
 
   const {
     register,
@@ -39,6 +49,10 @@ const inputFirstName =register('firstName',{
 })
 
 const inputLastName =register('lastName',{
+  required: true,
+})
+
+const inputEmail =register('email',{
   required: true,
 })
 
@@ -73,9 +87,20 @@ const inputRepeatPassword =register('repeatPassword',{
             labelType={labelsType.textLabelType}
             label={labels.form.labelLastName}
             placeholder={labels.form.placeholderLastName}
-            inputType={formInputsType.typeLastName}
+            inputType={formInputsType.typeEmail}
             inputRequired={inputLastName}
             nameInput={nameInputs.nameLastInput}
+ 
+          />
+
+<Input
+            errors={getErrorsEmail({email: errors.email})}
+            labelType={labelsType.emailLabelType}
+            label={labels.form.labelEmail}
+            placeholder={labels.form.placeholderEmail}
+            inputType={formInputsType.typeLastName}
+            inputRequired={inputEmail}
+            nameInput={nameInputs.nameEmail}
  
           />
 
@@ -105,6 +130,12 @@ const inputRepeatPassword =register('repeatPassword',{
             // handleClick={}
             nameInput={nameInputs.nameRepeatPassword}
 
+          />
+
+          <ButtonPrimary
+          customClassName={button.buttonClass}
+          buttonLabel={labels.form.buttonLabel}
+          type={buttonType}
           />
         </form>
       </div>

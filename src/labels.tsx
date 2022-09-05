@@ -10,12 +10,15 @@ form:{
     warningRequired: 'Pole jest Wymagane',
     placeholderFirstName: 'Imię',
     placeholderLastName: 'Nazwisko',
+    placeholderEmail:'Email',
     placeholderPassword: 'Hasło',
     placeholderRepeatPassword: 'Powtórz hasło',
     labelFirstName: 'Podaj Imię:',
-    labelLastName: 'Podaj Nzawisko',
-    labelPassword: 'Podaj hasło',
+    labelLastName: 'Podaj Nazwisko:',
+    labelEmail: 'Podaj adres e-mail:',
+    labelPassword: 'Podaj hasło:',
     labelRepeatPassword: 'Powtórz hasło:'
+  
 },
 
 }
