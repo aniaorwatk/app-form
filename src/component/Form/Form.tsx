@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import labels from "../../labels";
 import Input from "../Input/Input";
@@ -10,6 +10,9 @@ import {
   getErrorsRepeatPassword,
   nameInputs,
 } from "./FormHandler";
+
+import eyeOn from "../../assets/eye-regular.svg"
+import eyeOff from "../../assets/eye-slash-regular.svg"
 import "./Form.scss";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 
@@ -40,6 +43,8 @@ const button = {
 
 const Form = () => {
   const buttonType = "submit";
+  const eyeOnPassword =eyeOn;
+  const eyeOffPassword =eyeOff;
 
   const {
     register,
@@ -69,6 +74,14 @@ const Form = () => {
   const inputRepeatPassword = register("repeatPassword", {
     required: true,
   });
+
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+      setPasswordShown(!passwordShown);
+  };
+  const passwordType = `${passwordShown ? "text" : "password"}`;
+  console.log(passwordType)
+  const imgEye =`${passwordShown ? eyeOffPassword : eyeOnPassword}`;
 
   const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
 
@@ -116,11 +129,12 @@ const Form = () => {
             labelType={labelsType.textLabelType}
             label={labels.form.labelPassword}
             placeholder={labels.form.placeholderPassword}
-            inputType={formInputsType.typePassword}
+            inputType={passwordType}
+         
             inputRequired={inputPassword}
-            // eyeImage={}
+            eyeImage={imgEye}
             // altEyeInput={}
-            // handleClick={}
+            handleClick={togglePassword }
             nameInput={nameInputs.namePassword}
           />
           <Input
@@ -130,11 +144,11 @@ const Form = () => {
             labelType={labelsType.textLabelType}
             label={labels.form.labelRepeatPassword}
             placeholder={labels.form.placeholderRepeatPassword}
-            inputType={formInputsType.typeRepeatPassword}
+            inputType={passwordType}
             inputRequired={inputRepeatPassword}
-            // eyeImage={}
+            eyeImage={imgEye}
             // altEyeInput={}
-            // handleClick={}
+            handleClick={togglePassword }
             nameInput={nameInputs.nameRepeatPassword}
           />
 
