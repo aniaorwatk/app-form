@@ -1,6 +1,6 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
-import "./Input.scss";
+// import "./Inputs.scss";
 
 export interface ICheckboxType {
   errors: string | false;

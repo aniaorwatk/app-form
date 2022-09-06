@@ -1,1 +1,23 @@
 @import '../../scss/Main';
+
+.primary{
+background: $color-buttonPrimary;
+   color: $color-text-white;
+   font-size: $font-size-M;
+   padding: 0.5rem;
+   border:1px solid  $color-dark-sand;
+   border-radius: 0.5rem;
+   cursor: pointer;
+}
+
+.primary:hover{
+    background: $color-buttonPrimary-hover;  
+}
+
+button[disabled],
+button:disabled,
+button[disabled]:hover,
+button:disabled:hover {
+  background:$color-buttonDisabled;
+  border: 1px solid $color-dark-sand;
+}

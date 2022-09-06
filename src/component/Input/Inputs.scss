@@ -1,1 +1,103 @@
 @import '../../scss/Main';
+
+input, textarea{
+    width: 20rem;
+    line-height: 2rem;
+    padding-left: 0.5rem;
+    font-size: $font-size-M;
+    background: $color-bg-white;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+}
+input:focus{
+    outline-color:  $color-light-purple;
+}
+
+.InputError{
+    margin:0;
+    padding: 0;
+    font-size: $font-size-S;
+    color: $color-dark-sand;
+}
+
+// .InputError:focus{
+//     border: 1px solid $color-light-purple;
+// }
+
+.errorInput{
+   border: 1px solid $color-dark-sand;
+}
+
+.errorInput:focus{
+    outline-color: $color-dark-sand;
+ }
+
+.InputBox, .textareaBox {
+    display: flex;
+    flex-direction: column;
+    &__box{
+        display: flex;
+        width: 35rem;
+        justify-content: space-between;
+        margin-top: 1rem;
+        &-filed{
+           position: relative;
+           &--img{
+            position: absolute;
+            top:0.5rem;
+            left: 18rem;
+           }
+
+        }
+    }
+}
+
+label{
+    font-size: $font-size-M;
+    line-height: 2rem;
+}
+
+.InputBox__box-filed--img{
+    height: 1rem;
+    filter: contrast(1%);
+        -webkit-filter: contrast(120%);
+}
+
+.inputCheckbox{
+    display: flex;
+    flex-direction: column;
+    &__box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin:  1rem   0 0 1rem;
+  
+      &-input {
+        border: 1px solid black;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 0.3125rem;
+        margin-top: 0.25rem;
+      }
+      &-input:checked {
+        -webkit-appearance: checkbox;
+      }
+      &-label {
+        margin-left: 2rem;
+        font-size: $font-size-S;
+        line-height: 1.2rem;
+        width: 100%;
+      }
+      .errorCheckbox {
+        border: 1px solid $color-dark-sand;
+      }
+    }
+  }
+
+
+  .textareaBox__box-text{
+font-family: Arial, Helvetica, sans-serif;
+height: 4rem;
+width: 20rem;
+resize: none;
+  }

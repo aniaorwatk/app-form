@@ -6,6 +6,8 @@ $color-mustard:#E0CB1B;
 $color-blue:#1E0094;
 $color-light-purple:#ADA2D9;
 $color-text-black: black;
-$color-buttonPrimary:transparent linear-gradient(180deg, #1E0094 0%, #533ea8 100%);
+$color-buttonPrimary-hover:transparent linear-gradient(180deg, #1E0094 0%, #533ea8 100%);
+$color-buttonPrimary:transparent linear-gradient(180deg, #533ea8 0%, #1E0094 100%);
 $color-buttonSecondary:transparent linear-gradient(180deg, #948509 0%, #777137 100%);
+$color-buttonDisabled:transparent linear-gradient(180deg, #B1B1B1 0%, #818181 100%);
 
