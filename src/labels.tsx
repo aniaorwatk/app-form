@@ -1,4 +1,3 @@
-import React from "react";
 
 export const maxCharacters: number = 255;
 export const maxCharactersTextatea: number =1400;
