@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import labels from "../../labels";
+import labels, { maxCharacters, maxCharactersTextatea, minCharacters, minCharactersPassword } from "../../labels";
 import Input from "../Input/Input";
 import {
   getErrorFirstName,
   getErrorsAgreement,
   getErrorsEmail,
   getErrorsLastName,
+  getErrorsOpinion,
   getErrorsPassword,
   getErrorsRepeatPassword,
   nameInputs,
@@ -17,6 +18,7 @@ import eyeOff from "../../assets/eye-slash-regular.svg";
 import "./Form.scss";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 import InputCheckbox from "../Input/InputCheckbox";
+import InputTextarea from "../Input/InputTextarea";
 
 export interface IFormInputs {
   firstName: "string";
@@ -25,9 +27,10 @@ export interface IFormInputs {
   password: "string";
   repeatPassword: "string";
   agreement: boolean;
+  opinion: "string";
 }
 
-const labelsType = {
+const InputType = {
   textLabelType: "text",
   emailLabelType: "email",
   checkboxType: "checkbox"
@@ -46,6 +49,8 @@ const button = {
   buttonClass: "primary",
 };
 
+const nameFirstInput = "firstName"
+
 const Form = () => {
   const buttonType = "submit";
   const eyeOnPassword = eyeOn;
@@ -60,24 +65,49 @@ const Form = () => {
     watch,
   } = useForm<IFormInputs>({});
 
+  const firstName= useRef({});
+  firstName.current = watch('firstName');
+
+  const lastName = useRef({});
+ lastName.current = watch('lastName');
+
+const password = useRef({});
+password.current = watch("password");
+
   const inputFirstName = register("firstName", {
     required: true,
+    maxLength: maxCharacters,
+    minLength: minCharacters,
   });
 
   const inputLastName = register("lastName", {
     required: true,
+    maxLength: maxCharacters,
+    minLength: minCharacters,
   });
 
   const inputEmail = register("email", {
     required: true,
+    maxLength: maxCharacters,
   });
 
   const inputPassword = register("password", {
     required: true,
+    maxLength: maxCharacters,
+    minLength:minCharactersPassword,
+    validate: value => value !== firstName.current && value !== lastName.current
   });
 
   const inputRepeatPassword = register("repeatPassword", {
     required: true,
+    maxLength: maxCharacters,
+    minLength:minCharactersPassword,
+    validate: value => value === password.current
+  });
+
+  const inputOpinion= register("opinion", {
+    maxLength: maxCharactersTextatea,
+    minLength: minCharacters,
   });
 
   const inputAgremeent = register("agreement", {
@@ -113,25 +143,25 @@ const Form = () => {
             labelType={formInputsType.typeFirstName}
             label={labels.form.labelFirstName}
             placeholder={labels.form.placeholderFirstName}
-            inputType={formInputsType.typeFirstName}
+            inputType={InputType.textLabelType}
             inputRequired={inputFirstName}
-            nameInput={nameInputs.nameFirstInput}
+            nameInput={nameFirstInput}
           />
           <Input
             errors={getErrorsLastName({ lastName: errors.lastName })}
-            labelType={formInputsType.typeEmail}
+            labelType={formInputsType.typeLastName}
             label={labels.form.labelLastName}
             placeholder={labels.form.placeholderLastName}
-            inputType={formInputsType.typeEmail}
+            inputType={formInputsType.typeLastName}
             inputRequired={inputLastName}
             nameInput={nameInputs.nameLastInput}
           />
           <Input
             errors={getErrorsEmail({ email: errors.email })}
-            labelType={formInputsType.typeLastName}
+            labelType={formInputsType.typeEmail}
             label={labels.form.labelEmail}
             placeholder={labels.form.placeholderEmail}
-            inputType={formInputsType.typeLastName}
+            inputType={formInputsType.typeEmail}
             inputRequired={inputEmail}
             nameInput={nameInputs.nameEmail}
           />
@@ -151,7 +181,7 @@ const Form = () => {
             errors={getErrorsRepeatPassword({
               repeatPassword: errors.repeatPassword,
             })}
-            labelType={labelsType.textLabelType}
+            labelType={InputType.textLabelType}
             label={labels.form.labelRepeatPassword}
             placeholder={labels.form.placeholderRepeatPassword}
             inputType={passwordRepeatType}
@@ -161,11 +191,19 @@ const Form = () => {
             handleClick={togglePasswordRepeat}
             nameInput={nameInputs.nameRepeatPassword}
           />
+          <InputTextarea
+            errors={getErrorsOpinion({opinion: errors.opinion})}
+            label={labels.form.labelOpinion}
+            labelType={labels.form.labelOpinion}
+            inputRequired={inputOpinion}
+            placeholder={labels.form.placeholderOpinion}
+            nameInput={nameInputs.nameOpinion}
+            />
           <InputCheckbox
             errors={getErrorsAgreement({agreement: errors.agreement})}
             labelType={formInputsType.typeAgreement}
             label={labels.form.labelAgreement}
-            inputType={labelsType.checkboxType}
+            inputType={InputType.checkboxType}
             inputRequired={inputAgremeent}
           />
           <ButtonPrimary

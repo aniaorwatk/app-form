@@ -21,12 +21,12 @@ const InputTextarea = ({
 }: ITextareaType) => {
   return (
     <div className="textareaBox">
-      <div className="extareaBox__box">
-        <label className="extareaBox__box-label" htmlFor={labelType}>
+      <div className="textareaBox__box">
+        <label className="textareaBox__box-label" htmlFor={labelType}>
           {label}
         </label>
         <textarea
-          className={`extareaBox__box-text ${errors ? "errorInput" : ""}`}
+          className={`textareaBox__box-text ${errors ? "errorInput" : ""}`}
           id={labelType}
           placeholder={placeholder}
           {...inputRequired}

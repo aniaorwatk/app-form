@@ -1,6 +1,6 @@
 @import '../../scss/Main';
 
-input{
+input, textarea{
     width: 20rem;
     line-height: 2rem;
     padding-left: 0.5rem;
@@ -32,7 +32,7 @@ input:focus{
     outline-color: $color-dark-sand;
  }
 
-.InputBox{
+.InputBox, .textareaBox {
     display: flex;
     flex-direction: column;
     &__box{
@@ -66,34 +66,38 @@ label{
 .inputCheckbox{
     display: flex;
     flex-direction: column;
-  
-    // .registerError {
-    //   margin-bottom: 0.5rem;
-    //   color: $color-darkOrange;
-    // }
     &__box {
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      margin-bottom: 1rem;
+      margin:  1rem   0 0 1rem;
   
       &-input {
         border: 1px solid black;
-        width: 1rem;
-        height: 1rem;
+        width: 1.25rem;
+        height: 1.25rem;
         border-radius: 0.3125rem;
-        margin: 0;
+        margin-top: 0.25rem;
       }
       &-input:checked {
         -webkit-appearance: checkbox;
       }
       &-label {
-        margin-left: 1rem;
+        margin-left: 2rem;
         font-size: $font-size-S;
+        line-height: 1.2rem;
         width: 100%;
       }
       .errorCheckbox {
         border: 1px solid $color-dark-sand;
       }
     }
+  }
+
+
+  .textareaBox__box-text{
+font-family: Arial, Helvetica, sans-serif;
+height: 4rem;
+width: 20rem;
+resize: none;
   }

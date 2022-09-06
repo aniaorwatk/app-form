@@ -1,7 +1,10 @@
 
 import React from "react";
-import {  LiteralUnion, Message, MultipleFieldErrors, Ref } from "react-hook-form";
+import {  LiteralUnion, Message, MultipleFieldErrors, Ref, useForm } from "react-hook-form";
 import labels from "../../labels";
+import { IFormInputs } from "./Form";
+
+
 
 export const nameInputs ={
    nameFirstInput: "firstName",
@@ -9,10 +12,13 @@ export const nameInputs ={
     nameEmail: "email",
 namePassword: "password",
 nameRepeatPassword: "repeatPassword",
+nameOpinion: "opinion",
 } 
 
 export enum IErrorType{
     required = 'required',
+    maxLength ='maxLength',
+    minLength='minLength',
     validate='validate',
 }
 
@@ -56,34 +62,53 @@ type ErrorType =
 export const getErrorFirstName = ({firstName}:{firstName?:IErrorContentType }) =>{
     return (
         firstName?.type === IErrorType.required && labels.form.warningRequired
-        || ''
+        || firstName?.type === IErrorType.maxLength && labels.form.warningMaxCharacters
+        || firstName?.type === IErrorType.minLength && labels.form.warningMinCharacters
     )
 }
 
 export const getErrorsLastName =({lastName}:{lastName?:IErrorContentType })=>{
-    return( lastName?.type === IErrorType.required && labels.form.warningRequired )
+    return( 
+        lastName?.type === IErrorType.required && labels.form.warningRequired 
+        || lastName?.type === IErrorType.maxLength && labels.form.warningMaxCharacters
+        || lastName?.type === IErrorType.minLength && labels.form.warningMinCharacters
+        )
 }
 
 export const getErrorsPassword =({password}:{password?:IErrorContentType })=>{
     return(
         password?.type ===IErrorType.required && labels.form.warningRequired
-    )
+        || password?.type === IErrorType.maxLength && labels.form.warningMaxCharacters
+        || password?.type === IErrorType.minLength && labels.form.warningMinCharactersPassword
+        ||password?.type === IErrorType.validate && labels.form.warningDifferentName
+        )
 }
 
 export const getErrorsRepeatPassword =({repeatPassword}:{repeatPassword?:IErrorContentType })=>{
     return(
         repeatPassword?.type ===IErrorType.required && labels.form.warningRequired
-    )
+        || repeatPassword?.type === IErrorType.maxLength && labels.form.warningMaxCharacters
+        || repeatPassword?.type === IErrorType.minLength && labels.form.warningMinCharactersPassword
+        ||repeatPassword?.type === IErrorType.validate && labels.form.warningMatchPassword
+        )
 }
 
 export const getErrorsEmail =({email}:{email?:IErrorContentType })=>{
     return(
         email?.type ===IErrorType.required && labels.form.warningRequired
-    )
+        || email?.type === IErrorType.maxLength && labels.form.warningMaxCharacters
+        )
+}
+
+export const getErrorsOpinion=({opinion}:{opinion?:IErrorContentType })=>{
+    return(
+        opinion?.type === IErrorType.maxLength && labels.form.warningMaxCharactersTextarea
+        || opinion?.type === IErrorType.minLength && labels.form.warningMinCharacters
+        )
 }
 
 export const getErrorsAgreement =({agreement}:{agreement?:IErrorContentType })=>{
     return(
-        agreement?.type ===IErrorType.required && labels.form.warningRequired
+        agreement?.type ===IErrorType.required && labels.form.warningRequiredAgreement
     )
 }
