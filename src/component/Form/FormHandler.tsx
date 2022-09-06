@@ -29,22 +29,14 @@ export type FieldError = {
     message?: string | undefined;
 };
 
-// export type FieldError = {
-//     type: string;
-//     ref?: Ref;
-//     types?: MultipleFieldErrors;
-//     message?: Message;
-// };
-
 export interface IErrors {
     firstName: 'string',
     lastName: 'string',
     email: 'string'
     password: 'string',
     repeatPassword: 'string'
+    agreement: 'string'
 }
-
-
 
 type ErrorType =
     (string & { _?: never })
@@ -60,8 +52,6 @@ type ErrorType =
     | "valueAsNumber"
     | "valueAsDate"
     | "value"
-
-// type ErrorType = LiteralUnion<"required" | "min" | "max" | "maxLength" | "minLength" | "pattern" | "validate" | "valueAsNumber" | "valueAsDate" | "value" | "setValueAs" | "shouldUnregister" | "onChange" | "onBlur" | "disabled" | "deps", string>
 
 export const getErrorFirstName = ({firstName}:{firstName?:IErrorContentType }) =>{
     return (
@@ -89,5 +79,11 @@ export const getErrorsRepeatPassword =({repeatPassword}:{repeatPassword?:IErrorC
 export const getErrorsEmail =({email}:{email?:IErrorContentType })=>{
     return(
         email?.type ===IErrorType.required && labels.form.warningRequired
+    )
+}
+
+export const getErrorsAgreement =({agreement}:{agreement?:IErrorContentType })=>{
+    return(
+        agreement?.type ===IErrorType.required && labels.form.warningRequired
     )
 }

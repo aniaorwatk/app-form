@@ -1,6 +1,6 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
-import "./Input.scss";
+// import "./Input.scss";
 
 interface ITextareaType {
   errors: string | false | JSX.Element;

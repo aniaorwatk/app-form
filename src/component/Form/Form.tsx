@@ -4,6 +4,7 @@ import labels from "../../labels";
 import Input from "../Input/Input";
 import {
   getErrorFirstName,
+  getErrorsAgreement,
   getErrorsEmail,
   getErrorsLastName,
   getErrorsPassword,
@@ -11,10 +12,11 @@ import {
   nameInputs,
 } from "./FormHandler";
 
-import eyeOn from "../../assets/eye-regular.svg"
-import eyeOff from "../../assets/eye-slash-regular.svg"
+import eyeOn from "../../assets/eye-regular.svg";
+import eyeOff from "../../assets/eye-slash-regular.svg";
 import "./Form.scss";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
+import InputCheckbox from "../Input/InputCheckbox";
 
 export interface IFormInputs {
   firstName: "string";
@@ -22,11 +24,13 @@ export interface IFormInputs {
   email: "string";
   password: "string";
   repeatPassword: "string";
+  agreement: boolean;
 }
 
 const labelsType = {
   textLabelType: "text",
   emailLabelType: "email",
+  checkboxType: "checkbox"
 };
 
 const formInputsType = {
@@ -35,6 +39,7 @@ const formInputsType = {
   typeEmail: "email",
   typePassword: "password",
   typeRepeatPassword: "repeatPassword",
+  typeAgreement: "agreement",
 };
 
 const button = {
@@ -43,8 +48,8 @@ const button = {
 
 const Form = () => {
   const buttonType = "submit";
-  const eyeOnPassword =eyeOn;
-  const eyeOffPassword =eyeOff;
+  const eyeOnPassword = eyeOn;
+  const eyeOffPassword = eyeOff;
 
   const {
     register,
@@ -75,26 +80,32 @@ const Form = () => {
     required: true,
   });
 
+  const inputAgremeent = register("agreement", {
+    required: true,
+  });
+
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
-      setPasswordShown(!passwordShown);
+    setPasswordShown(!passwordShown);
   };
+
+  const [passwordRepeatShown, setPasswordRepeatShown] = useState(false);
+  const togglePasswordRepeat = () => {
+    setPasswordRepeatShown(!passwordRepeatShown);
+  };
+
   const passwordType = `${passwordShown ? "text" : "password"}`;
-  console.log(passwordType)
-  const imgEye =`${passwordShown ? eyeOffPassword : eyeOnPassword}`;
+  const passwordRepeatType = `${passwordRepeatShown ? "text" : "password"}`;
+  const imgEye = `${passwordShown ? eyeOffPassword : eyeOnPassword}`;
+  const imgEyeRepeat = `${
+    passwordRepeatShown ? eyeOffPassword : eyeOnPassword
+  }`;
 
   const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
 
-  
- 
- 
-
-
   return (
     <main>
-     {/* <i className="fa-regular fa-eye"></i>
-     <i className="fa-regular fa-eye-slash"></i> */}
-      <div>
+      <div className="formBox">
         <h2>{labels.form.registerTitle}</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
@@ -130,11 +141,10 @@ const Form = () => {
             label={labels.form.labelPassword}
             placeholder={labels.form.placeholderPassword}
             inputType={passwordType}
-         
             inputRequired={inputPassword}
             eyeImage={imgEye}
-            // altEyeInput={}
-            handleClick={togglePassword }
+            altEyeInput={labels.form.altImg}
+            handleClick={togglePassword}
             nameInput={nameInputs.namePassword}
           />
           <Input
@@ -144,14 +154,20 @@ const Form = () => {
             labelType={labelsType.textLabelType}
             label={labels.form.labelRepeatPassword}
             placeholder={labels.form.placeholderRepeatPassword}
-            inputType={passwordType}
+            inputType={passwordRepeatType}
             inputRequired={inputRepeatPassword}
-            eyeImage={imgEye}
-            // altEyeInput={}
-            handleClick={togglePassword }
+            eyeImage={imgEyeRepeat}
+            altEyeInput={labels.form.altImg}
+            handleClick={togglePasswordRepeat}
             nameInput={nameInputs.nameRepeatPassword}
           />
-
+          <InputCheckbox
+            errors={getErrorsAgreement({agreement: errors.agreement})}
+            labelType={formInputsType.typeAgreement}
+            label={labels.form.labelAgreement}
+            inputType={labelsType.checkboxType}
+            inputRequired={inputAgremeent}
+          />
           <ButtonPrimary
             customClassName={button.buttonClass}
             buttonLabel={labels.form.buttonLabel}

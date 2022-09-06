@@ -8,5 +8,34 @@ main {
   height: 70vh;
   width: 100vh;
   background-color: white;
+
+  .formBox{
+  h2{
+    display:inline-block;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  h2::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 8rem;
+    background-color: $color-blue;
+    border-radius: 2px;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+form{
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+}
+  button{
+    margin-top: 2rem;
+    align-self: center;
+  }
+}
 }
 

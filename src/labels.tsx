@@ -18,7 +18,9 @@ form:{
     labelLastName: 'Podaj Nazwisko:',
     labelEmail: 'Podaj adres e-mail:',
     labelPassword: 'Podaj hasło:',
-    labelRepeatPassword: 'Powtórz hasło:' 
+    labelRepeatPassword: 'Powtórz hasło:', 
+    labelAgreement: 'Wyrażam zgodę na przetwarzanie moich danych osobowych u kontrahentów portalu wspaniałecytaty.pl',
+    altImg: 'Podglądnij hasło'
 },
 
 }

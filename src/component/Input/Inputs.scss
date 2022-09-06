@@ -36,7 +36,6 @@ input:focus{
     display: flex;
     flex-direction: column;
     &__box{
-       
         display: flex;
         width: 35rem;
         justify-content: space-between;
@@ -63,3 +62,38 @@ label{
     filter: contrast(1%);
         -webkit-filter: contrast(120%);
 }
+
+.inputCheckbox{
+    display: flex;
+    flex-direction: column;
+  
+    // .registerError {
+    //   margin-bottom: 0.5rem;
+    //   color: $color-darkOrange;
+    // }
+    &__box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+  
+      &-input {
+        border: 1px solid black;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.3125rem;
+        margin: 0;
+      }
+      &-input:checked {
+        -webkit-appearance: checkbox;
+      }
+      &-label {
+        margin-left: 1rem;
+        font-size: $font-size-S;
+        width: 100%;
+      }
+      .errorCheckbox {
+        border: 1px solid $color-dark-sand;
+      }
+    }
+  }
