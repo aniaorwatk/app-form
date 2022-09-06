@@ -56,6 +56,15 @@ const Form = () => {
   const eyeOnPassword = eyeOn;
   const eyeOffPassword = eyeOff;
 
+  const defaultValues ={
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+    agreement: false,
+  }
+
   const {
     register,
     formState: { errors, dirtyFields, isValid, isSubmitted },
@@ -67,12 +76,13 @@ const Form = () => {
 
   const firstName= useRef({});
   firstName.current = watch('firstName');
-
   const lastName = useRef({});
  lastName.current = watch('lastName');
-
 const password = useRef({});
 password.current = watch("password");
+const dirty = Object.keys(defaultValues).length === Object.keys(dirtyFields).length
+const disabledButtonOrange = !isValid && isSubmitted
+const trueDis = true;
 
   const inputFirstName = register("firstName", {
     required: true,
@@ -206,11 +216,19 @@ password.current = watch("password");
             inputType={InputType.checkboxType}
             inputRequired={inputAgremeent}
           />
+          {dirty ?
           <ButtonPrimary
             customClassName={button.buttonClass}
             buttonLabel={labels.form.buttonLabel}
             type={buttonType}
-          />
+            isDisabled={disabledButtonOrange}
+          />:
+          <ButtonPrimary
+            customClassName={button.buttonClass}
+            buttonLabel={labels.form.buttonLabel}
+            type={buttonType}
+            isDisabled={trueDis}
+          />}
         </form>
       </div>
     </main>

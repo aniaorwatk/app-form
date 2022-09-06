@@ -13,3 +13,11 @@ background: $color-buttonPrimary;
 .primary:hover{
     background: $color-buttonPrimary-hover;  
 }
+
+button[disabled],
+button:disabled,
+button[disabled]:hover,
+button:disabled:hover {
+  background:$color-buttonDisabled;
+  border: 1px solid $color-dark-sand;
+}
