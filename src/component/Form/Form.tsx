@@ -99,7 +99,7 @@ const Form = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             errors={getErrorFirstName({ firstName: errors.firstName })}
-            labelType={labelsType.textLabelType}
+            labelType={formInputsType.typeFirstName}
             label={labels.form.labelFirstName}
             placeholder={labels.form.placeholderFirstName}
             inputType={formInputsType.typeFirstName}
@@ -108,7 +108,7 @@ const Form = () => {
           />
           <Input
             errors={getErrorsLastName({ lastName: errors.lastName })}
-            labelType={labelsType.textLabelType}
+            labelType={formInputsType.typeEmail}
             label={labels.form.labelLastName}
             placeholder={labels.form.placeholderLastName}
             inputType={formInputsType.typeEmail}
@@ -117,7 +117,7 @@ const Form = () => {
           />
           <Input
             errors={getErrorsEmail({ email: errors.email })}
-            labelType={labelsType.emailLabelType}
+            labelType={formInputsType.typeLastName}
             label={labels.form.labelEmail}
             placeholder={labels.form.placeholderEmail}
             inputType={formInputsType.typeLastName}
@@ -126,7 +126,7 @@ const Form = () => {
           />
           <Input
             errors={getErrorsPassword({ password: errors.password })}
-            labelType={labelsType.textLabelType}
+            labelType={labels.form.placeholderPassword}
             label={labels.form.labelPassword}
             placeholder={labels.form.placeholderPassword}
             inputType={passwordType}

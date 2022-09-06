@@ -1,5 +1,6 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
+import "./Inputs.scss";
 
 interface IInputType {
   errors?: string | false | JSX.Element;
