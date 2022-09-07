@@ -172,3 +172,22 @@ export const getErrorsAgreement = ({
 
 export const eyeOnPassword = eyeOn;
 export const eyeOffPassword = eyeOff;
+
+export const InputType = {
+    textType: "text",
+    emailType: "email",
+    checkboxType: "checkbox",
+  };
+
+ export const formInputsType = {
+    typeFirstName: "firstName",
+    typeLastName: "lastName",
+    typeEmail: "email",
+    typePassword: "password",
+    typeRepeatPassword: "repeatPassword",
+    typeAgreement: "agreement",
+  };
+
+  export const button = {
+    buttonClass: "primary",
+  };

@@ -8,8 +8,10 @@ import labels, {
 } from "../../labels";
 import Input from "../Input/Input";
 import {
+  button,
   eyeOffPassword,
   eyeOnPassword,
+  formInputsType,
   getErrorFirstName,
   getErrorsAgreement,
   getErrorsEmail,
@@ -17,13 +19,12 @@ import {
   getErrorsOpinion,
   getErrorsPassword,
   getErrorsRepeatPassword,
+  InputType,
   nameInputs,
 } from "./FormHandler";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 import InputCheckbox from "../Input/InputCheckbox";
 import InputTextarea from "../Input/InputTextarea";
-// import eyeOn from "../../assets/eye-regular.svg";
-// import eyeOff from "../../assets/eye-slash-regular.svg";
 import "./Form.scss";
 
 export interface IFormInputs {
@@ -35,25 +36,6 @@ export interface IFormInputs {
   agreement: boolean;
   opinion: "string";
 }
-
-const InputType = {
-  textLabelType: "text",
-  emailLabelType: "email",
-  checkboxType: "checkbox",
-};
-
-const formInputsType = {
-  typeFirstName: "firstName",
-  typeLastName: "lastName",
-  typeEmail: "email",
-  typePassword: "password",
-  typeRepeatPassword: "repeatPassword",
-  typeAgreement: "agreement",
-};
-
-const button = {
-  buttonClass: "primary",
-};
 
 const Form = () => {
   const buttonType = "submit";
@@ -141,7 +123,7 @@ const Form = () => {
             labelType={formInputsType.typeFirstName}
             label={labels.form.labelFirstName}
             placeholder={labels.form.placeholderFirstName}
-            inputType={InputType.textLabelType}
+            inputType={InputType.textType}
             inputRequired={inputFirstName}
             nameInput={nameFirstInput}
           />
@@ -150,7 +132,7 @@ const Form = () => {
             labelType={formInputsType.typeLastName}
             label={labels.form.labelLastName}
             placeholder={labels.form.placeholderLastName}
-            inputType={formInputsType.typeLastName}
+            inputType={InputType.textType}
             inputRequired={inputLastName}
             nameInput={nameInputs.nameLastInput}
           />
@@ -159,13 +141,13 @@ const Form = () => {
             labelType={formInputsType.typeEmail}
             label={labels.form.labelEmail}
             placeholder={labels.form.placeholderEmail}
-            inputType={formInputsType.typeEmail}
+            inputType={InputType.emailType}
             inputRequired={inputEmail}
             nameInput={nameInputs.nameEmail}
           />
           <Input
             errors={getErrorsPassword({ password: errors.password })}
-            labelType={labels.form.placeholderPassword}
+            labelType={formInputsType.typePassword}
             label={labels.form.labelPassword}
             placeholder={labels.form.placeholderPassword}
             inputType={passwordType}
@@ -179,7 +161,7 @@ const Form = () => {
             errors={getErrorsRepeatPassword({
               repeatPassword: errors.repeatPassword,
             })}
-            labelType={InputType.textLabelType}
+            labelType={formInputsType.typeRepeatPassword}
             label={labels.form.labelRepeatPassword}
             placeholder={labels.form.placeholderRepeatPassword}
             inputType={passwordRepeatType}
