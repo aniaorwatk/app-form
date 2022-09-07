@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  LiteralUnion,
-  MultipleFieldErrors,
-  Ref,
-} from "react-hook-form";
+import { LiteralUnion, MultipleFieldErrors, Ref } from "react-hook-form";
 import labels from "../../labels";
 import eyeOn from "../../assets/eye-regular.svg";
 import eyeOff from "../../assets/eye-slash-regular.svg";
@@ -174,20 +170,20 @@ export const eyeOnPassword = eyeOn;
 export const eyeOffPassword = eyeOff;
 
 export const InputType = {
-    textType: "text",
-    emailType: "email",
-    checkboxType: "checkbox",
-  };
+  textType: "text",
+  emailType: "email",
+  checkboxType: "checkbox",
+};
 
- export const formInputsType = {
-    typeFirstName: "firstName",
-    typeLastName: "lastName",
-    typeEmail: "email",
-    typePassword: "password",
-    typeRepeatPassword: "repeatPassword",
-    typeAgreement: "agreement",
-  };
+export const formInputsType = {
+  typeFirstName: "firstName",
+  typeLastName: "lastName",
+  typeEmail: "email",
+  typePassword: "password",
+  typeRepeatPassword: "repeatPassword",
+  typeAgreement: "agreement",
+};
 
-  export const button = {
-    buttonClass: "primary",
-  };
+export const button = {
+  buttonClass: "primary",
+};

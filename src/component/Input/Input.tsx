@@ -44,7 +44,9 @@ const Input = ({
             onClick={handleClick}
           />
           <input
-            className={`InputBox__box-filed--input  ${errors ? "errorInput" : ""}`}
+            className={`InputBox__box-filed--input  ${
+              errors ? "errorInput" : ""
+            }`}
             id={labelType}
             type={inputType}
             {...inputRequired}
