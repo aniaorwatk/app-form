@@ -44,15 +44,16 @@ console.log(quote?.author)
 
 return(
 <footer>
-    <h2>{quote?.text}</h2>
+    {/* <h2>{quote?.text}</h2>
     <p>{quote?.author}</p>
     {/* <pre>{JSON.stringify(quote, null, 2)}</pre> */}
-    <ButtonPrimary
+    {/* <ButtonPrimary
      buttonLabel='kkjkhjk'
      customClassName='primary'
      type= 'button'
      onClick={getQuote}
-     />
+     /> */}
+     
 </footer>
 )
 }
