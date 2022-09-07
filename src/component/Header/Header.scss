@@ -1,20 +1,19 @@
-@import '../../scss/Main';
+@import "../../scss/Main";
 
-header{
-    display: flex;
-    flex-direction: column;
-   justify-content: center;
-    padding:  0 5vw 0 5vw;
-    height: 15vh;
-    width: 100vh;
-    background-color: $color-bg-white;
-    border-bottom:1px solid $color-light-purple;
-    h1{
-        font-size: $font-size-XXL;
-    }
-    p{
-        margin-top: 1rem;
-        margin-left: 2rem;
-        font-size: $font-size-L;
-    }
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5vw 0 5vw;
+  height: 15vh;
+  background-color: $color-bg-white;
+  border-bottom: 1px solid $color-light-purple;
+  h1 {
+    font-size: $font-size-XXL;
+  }
+  p {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    font-size: $font-size-L;
+  }
 }

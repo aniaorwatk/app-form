@@ -1,39 +1,39 @@
-@import '../../scss/Main';
+@import "../../scss/Main";
 
-.main{
-    display: flex;
-  
-
+.main {
+  display: flex;
+  flex-direction: row;
 }
-.sectionBox{
+.sectionBox {
   margin-left: auto;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-img{
+  img {
     width: 10rem;
     height: 14vh;
-
-}
-.photo1{
-    filter: grayscale(100%) brightness(70%) sepia(50%) hue-rotate(-100deg) saturate(500%) contrast(1);
-}
-.photo2{
-    filter: grayscale(100%) brightness(70%) sepia(30%) hue-rotate(-100deg) saturate(500%) contrast(1);
-}
-.photo3{
+  }
+  .photo1 {
+    filter: grayscale(100%) brightness(70%) sepia(50%) hue-rotate(-100deg)
+      saturate(500%) contrast(1);
+  }
+  .photo2 {
+    filter: grayscale(100%) brightness(70%) sepia(30%) hue-rotate(-100deg)
+      saturate(500%) contrast(1);
+  }
+  .photo3 {
     filter: grayscale(46%) sepia(90%) saturate(175%);
     -webkit-filter: grayscale(46%) sepia(100%) saturate(175%);
-    -moz-filter: grayscale(46%) sepia(100%) saturate(175%); 
-}
-.photo4{
+    -moz-filter: grayscale(46%) sepia(100%) saturate(175%);
+  }
+  .photo4 {
     filter: grayscale(46%) sepia(100%) saturate(175%);
     -webkit-filter: grayscale(46%) sepia(100%) saturate(175%);
-    -moz-filter: grayscale(46%) sepia(100%) saturate(175%); 
-}
-.photo5{
+    -moz-filter: grayscale(46%) sepia(100%) saturate(175%);
+  }
+  .photo5 {
     filter: grayscale(46%) sepia(100%) saturate(500%);
     -webkit-filter: grayscale(46%) sepia(100%) saturate(500%);
     -moz-filter: grayscale(46%) sepia(100%) saturate(500%);
-}
+  }
 }
