@@ -7,14 +7,11 @@ footer{
     padding:  0 5vw 0 5vw;
     height: 15vh;
     width: 100vh;
-    background-color: white;
-    h2{
-        font-size: $font-size-XXL;
-        color: black;
-    }
-    p{
-        margin-top: 1rem;
-        margin-left: 2rem;
-        font-size: $font-size-L;
-    }
+    background-color: $color-bg-white;
+    color:$color-text-black;
+border-top: 3px solid $color-yellow;
+
+.log{
+    color:$color-mustard;
+}
 }
