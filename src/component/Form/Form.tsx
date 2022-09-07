@@ -1,8 +1,15 @@
 import React, { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import labels, { maxCharacters, maxCharactersTextatea, minCharacters, minCharactersPassword } from "../../labels";
+import labels, {
+  maxCharacters,
+  maxCharactersTextatea,
+  minCharacters,
+  minCharactersPassword,
+} from "../../labels";
 import Input from "../Input/Input";
 import {
+  eyeOffPassword,
+  eyeOnPassword,
   getErrorFirstName,
   getErrorsAgreement,
   getErrorsEmail,
@@ -12,13 +19,12 @@ import {
   getErrorsRepeatPassword,
   nameInputs,
 } from "./FormHandler";
-
-import eyeOn from "../../assets/eye-regular.svg";
-import eyeOff from "../../assets/eye-slash-regular.svg";
-import "./Form.scss";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 import InputCheckbox from "../Input/InputCheckbox";
 import InputTextarea from "../Input/InputTextarea";
+// import eyeOn from "../../assets/eye-regular.svg";
+// import eyeOff from "../../assets/eye-slash-regular.svg";
+import "./Form.scss";
 
 export interface IFormInputs {
   firstName: "string";
@@ -33,7 +39,7 @@ export interface IFormInputs {
 const InputType = {
   textLabelType: "text",
   emailLabelType: "email",
-  checkboxType: "checkbox"
+  checkboxType: "checkbox",
 };
 
 const formInputsType = {
@@ -49,40 +55,23 @@ const button = {
   buttonClass: "primary",
 };
 
-const nameFirstInput = "firstName"
-
 const Form = () => {
   const buttonType = "submit";
-  const eyeOnPassword = eyeOn;
-  const eyeOffPassword = eyeOff;
-
-  const defaultValues ={
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    repeatPassword: "",
-    agreement: false,
-  }
-
+  const nameFirstInput = "firstName";
   const {
     register,
-    formState: { errors, dirtyFields, isValid, isSubmitted },
-    setError,
-    setValue,
+    formState: { errors, isValid, isSubmitted },
     handleSubmit,
     watch,
   } = useForm<IFormInputs>({});
 
-  const firstName= useRef({});
-  firstName.current = watch('firstName');
+  const firstName = useRef({});
+  firstName.current = watch("firstName");
   const lastName = useRef({});
- lastName.current = watch('lastName');
-const password = useRef({});
-password.current = watch("password");
-const dirty = Object.keys(defaultValues).length === Object.keys(dirtyFields).length
-const disabledButtonOrange = !isValid && isSubmitted
-const trueDis = true;
+  lastName.current = watch("lastName");
+  const password = useRef({});
+  password.current = watch("password");
+  const disabledButtonOrange = !isValid && isSubmitted;
 
   const inputFirstName = register("firstName", {
     required: true,
@@ -104,25 +93,24 @@ const trueDis = true;
   const inputPassword = register("password", {
     required: true,
     maxLength: maxCharacters,
-    minLength:minCharactersPassword,
-    validate: value => value !== firstName.current && value !== lastName.current
+    minLength: minCharactersPassword,
+    validate: (value) =>
+      value !== firstName.current && value !== lastName.current,
   });
 
   const inputRepeatPassword = register("repeatPassword", {
     required: true,
     maxLength: maxCharacters,
-    minLength:minCharactersPassword,
-    validate: value => value === password.current
+    minLength: minCharactersPassword,
+    validate: (value) => value === password.current,
   });
 
-  const inputOpinion= register("opinion", {
+  const inputOpinion = register("opinion", {
     maxLength: maxCharactersTextatea,
     minLength: minCharacters,
   });
 
-  const inputAgremeent = register("agreement", {
-    required: true,
-  });
+  const inputAgremeent = register("agreement", { required: true });
 
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
@@ -202,33 +190,26 @@ const trueDis = true;
             nameInput={nameInputs.nameRepeatPassword}
           />
           <InputTextarea
-            errors={getErrorsOpinion({opinion: errors.opinion})}
+            errors={getErrorsOpinion({ opinion: errors.opinion })}
             label={labels.form.labelOpinion}
             labelType={labels.form.labelOpinion}
             inputRequired={inputOpinion}
             placeholder={labels.form.placeholderOpinion}
             nameInput={nameInputs.nameOpinion}
-            />
+          />
           <InputCheckbox
-            errors={getErrorsAgreement({agreement: errors.agreement})}
+            errors={getErrorsAgreement({ agreement: errors.agreement })}
             labelType={formInputsType.typeAgreement}
             label={labels.form.labelAgreement}
             inputType={InputType.checkboxType}
             inputRequired={inputAgremeent}
           />
-          {dirty ?
           <ButtonPrimary
             customClassName={button.buttonClass}
             buttonLabel={labels.form.buttonLabel}
             type={buttonType}
             isDisabled={disabledButtonOrange}
-          />:
-          <ButtonPrimary
-            customClassName={button.buttonClass}
-            buttonLabel={labels.form.buttonLabel}
-            type={buttonType}
-            isDisabled={trueDis}
-          />}
+          />
         </form>
       </div>
     </main>
