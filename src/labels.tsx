@@ -35,14 +35,15 @@ const labels = {
     labelAgreement:
       "Wyrażam zgodę na przetwarzanie moich danych osobowych u kontrahentów portalu wspaniałecytaty.pl",
     altImg: "Podglądnij hasło",
-  },
-  footer: {
     text: (
       <>
         Jeśli posiadasz konto, to przejdź do strony z
         <span className="log"> logowaniem</span>.
       </>
     ),
+  },
+  footer: {
+    labelButtom: "Zmień cytat"
   },
 };
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import labels from "../../labels";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 import { button } from "../Form/FormHandler";
+import quoteLeft from "../../assets/quote-left-solid.svg";
+import quoteRight from "../../assets/quote-right-solid.svg";
 import "./Footer.scss";
 
 interface IQuotesType {
@@ -11,10 +13,11 @@ interface IQuotesType {
 
 const Footer = () => {
   const URL = "https://type.fit/api/quotes";
+  const imgQuoteLeft = quoteLeft;
+  const imgQuoteRight = quoteRight;
 
   const [quotes, setQuotes] = useState<IQuotesType[]>([]);
   const [currentQuote, setCurrentQuote] = useState(0);
-
 
   useEffect(() => {
     fetch(URL)
@@ -35,14 +38,16 @@ const Footer = () => {
     <footer>
       {quotes.length > 0 && (
         <>
-          <p>{quotes[currentQuote].text}</p>
-          {quotes[currentQuote].author && <p>{quotes[currentQuote].author}</p>}
+          <p className="footer__text">„
+            {quotes[currentQuote].text}
+            ”</p>
+          {quotes[currentQuote].author && <p className="footer__author">{quotes[currentQuote].author}</p>}
         </>
       )}
       <ButtonPrimary
         type="button"
         customClassName={button.buttonClass}
-        buttonLabel="nowy cytat"
+        buttonLabel={labels.footer.labelButtom}
         onClick={changeQuote}
       />
     </footer>
