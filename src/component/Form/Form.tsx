@@ -193,6 +193,7 @@ const Form = () => {
             isDisabled={disabledButtonOrange}
           />
         </form>
+        <h3>{labels.form.text}</h3>
       </div>
     </main>
   );

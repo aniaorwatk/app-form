@@ -30,9 +30,13 @@ form{
   display: flex;
   flex-direction: column;
 }
-  button{
+  button, h3 {
     margin-top: 2rem;
     align-self: center;
+  }
+  .log {
+    color: $color-mustard;
+    
   }
 }
 }
