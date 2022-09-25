@@ -10,20 +10,18 @@ footer {
   color: $color-text-black;
   border-top: 3px solid $color-yellow;
 
-  img{
+  img {
     width: 0.5rem;
   }
-
-
 }
 
-.footer__text{
+.footer__text {
   font-weight: 800;
   font-style: italic;
 }
-.footer__author{
+.footer__author {
   margin-top: 0.5rem;
 }
-  .primary{
-        align-self: flex-end;
-      }
+.primary {
+  align-self: flex-end;
+}
