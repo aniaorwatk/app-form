@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section Should render 1`] = `
+<div>
+  <div
+    class="sectionBox"
+  >
+    <img
+      alt="Photo Albert Einstein"
+      class="photo1"
+      src="Albert-Einstein.jpg"
+    />
+    <img
+      alt="Photo Dalajlama"
+      class="photo2"
+      src="Dalajlama.jpg"
+    />
+    <img
+      alt="Photo Henryk Sienkiewicz"
+      class="photo3"
+      src="Henryk-Sienkiewicz.jpg"
+    />
+    <img
+      alt="Photo Maria Skłodowska-Curie"
+      class="photo4"
+      src="Marie-Curie.jpg"
+    />
+    <img
+      alt="Photo Wiliam Szekspir"
+      class="photo5"
+      src="William-Szekspir.jpg"
+    />
+  </div>
+</div>
+`;
