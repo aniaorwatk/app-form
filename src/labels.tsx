@@ -45,6 +45,13 @@ const labels = {
   footer: {
     labelButtom: "Zmień cytat"
   },
+  section:{
+    altAlbertEinstein: "Photo Albert Einstein",
+    altDalajlama:"Photo Dalajlama",
+    altHenrykSienkiewicz: "Photo Henryk Sienkiewicz",
+    altMarieCurie: "Photo Maria Skłodowska-Curie",
+    altWiliamSzekspir: "Photo Wiliam Szekspir",
+  }
 };
 
 export default labels;
