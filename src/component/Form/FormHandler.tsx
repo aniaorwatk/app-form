@@ -1,4 +1,3 @@
-import React from "react";
 import { LiteralUnion, MultipleFieldErrors, Ref } from "react-hook-form";
 import labels from "../../labels";
 import eyeOn from "../../assets/eye-regular.svg";

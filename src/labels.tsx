@@ -34,7 +34,8 @@ const labels = {
     labelOpinion: "Prześlij opinię:",
     labelAgreement:
       "Wyrażam zgodę na przetwarzanie moich danych osobowych u kontrahentów portalu wspaniałecytaty.pl",
-    altImg: "Podglądnij hasło",
+    altImgInPassword: "Podglądnij hasło w Hasło",
+    altImgInRepeatPassword: "Podglądnij hasło w Powtórz Hasło",
     text: (
       <>
         Jeśli posiadasz konto, to przejdź do strony z
