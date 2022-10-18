@@ -45,4 +45,33 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+# Information about the project
+
+## Technologies: 
+REACT • HTML5 • SCSS • TS
+
+## Libraries: 
+React Hook Form • React Testing Library
+
+## About the project:
+This is the registration page • Desktop/computer view only • Functions needed for validation with consts are found in the FormHandler.tsx component • Const: string are in labels • I did tests for Form, FormHandler, Section.
+### Header: 
+Displays a greeting.
+### Registration form:
+This is a form that contains inputs, textarea, inputCheckbox • Form written with the help of the react-hook-form library • There is validation: all fields have max and min - characters, selected fields are required, the password must match the repeatpassword, the password cannot be the same as firstName and lastName • Errors are displayed according to validation, under the appropriate field • Inputs change color when error is displayed • When the form is correctly filled in, after clicking the button, the data is logged in the console • The button is displayed when all the required fields are not completed and when the fields are incorrectly completed. When everything is correct, you can click the button and send the data.
+### Section with photos:
+Displays photos with famous people whose quotes can be found in the footer
+### Footer:
+Using API - displays a random quote with the author • With useEffect, the function displays the quote as soon as the page is turned on • By clicking on the button you can change the quote, with the function the quotes are displayed randomly.
+
+## Assets: 
+Free photos from the internet • Icon from fontawesome.com
+
+
+
+
+
+
+
+
 

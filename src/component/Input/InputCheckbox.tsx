@@ -1,6 +1,6 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
-// import "./Inputs.scss";
+import "./Inputs.scss";
 
 export interface ICheckboxType {
   errors: string | false;
@@ -22,7 +22,9 @@ const InputCheckbox = ({
       <div className="inputCheckbox__box">
         <input
           id={labelType}
-          className={`inputCheckbox__box-input  ${errors ? "errorCheckbox" : ""}`}
+          className={`inputCheckbox__box-input  ${
+            errors ? "errorCheckbox" : ""
+          }`}
           type={inputType}
           {...inputRequired}
         />

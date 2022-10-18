@@ -34,10 +34,10 @@ const Footer = () => {
     <footer>
       {quotes.length > 0 && (
         <>
-          <p className="footer__text">„
-            {quotes[currentQuote].text}
-            ”</p>
-          {quotes[currentQuote].author && <p className="footer__author">{quotes[currentQuote].author}</p>}
+          <p className="footer__text">„{quotes[currentQuote].text}”</p>
+          {quotes[currentQuote].author && (
+            <p className="footer__author">{quotes[currentQuote].author}</p>
+          )}
         </>
       )}
       <ButtonPrimary

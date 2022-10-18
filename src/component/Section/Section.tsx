@@ -21,8 +21,7 @@ const Section = () => {
         src={ImgAE}
         alt={labels.section.altAlbertEinstein}
       />
-      <img 
-      className="photo2" 
+      <img className="photo2" 
       src={ImgD} 
       alt={labels.section.altDalajlama} />
       <img
@@ -30,8 +29,7 @@ const Section = () => {
         src={ImgHS}
         alt={labels.section.altHenrykSienkiewicz}
       />
-      <img 
-      className="photo4" 
+      <img className="photo4" 
       src={ImgMC} 
       alt={labels.section.altMarieCurie} />
       <img
