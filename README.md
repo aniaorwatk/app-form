@@ -54,7 +54,7 @@ REACT • HTML5 • SCSS • TS
 React Hook Form • React Testing Library
 
 ## About the project:
-This is the registration page • Desktop/computer view only • Functions needed for validation with consts are found in the FormHandler.tsx component • Const: string are in labels • I did tests for Form, FormHandler, Section.
+This is the registration page • Desktop/computer view only • Functions needed for validation with consts are found in the FormHandler.tsx component • Const: string are in labels • I did tests for Form, FormHandler, Section • I use reusable components • I use variables for fonts and colors
 ### Header: 
 Displays a greeting.
 ### Registration form:
