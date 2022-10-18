@@ -153,7 +153,7 @@ const Form = () => {
             inputType={passwordType}
             inputRequired={inputPassword}
             eyeImage={imgEye}
-            altEyeInput={labels.form.altImg}
+            altEyeInput={labels.form.altImgInPassword}
             handleClick={togglePassword}
             nameInput={nameInputs.namePassword}
           />
@@ -167,7 +167,7 @@ const Form = () => {
             inputType={passwordRepeatType}
             inputRequired={inputRepeatPassword}
             eyeImage={imgEyeRepeat}
-            altEyeInput={labels.form.altImg}
+            altEyeInput={labels.form.altImgInRepeatPassword}
             handleClick={togglePasswordRepeat}
             nameInput={nameInputs.nameRepeatPassword}
           />
