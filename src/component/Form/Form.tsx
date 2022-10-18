@@ -42,7 +42,7 @@ const Form = () => {
   const nameFirstInput = "firstName";
   const {
     register,
-    formState: { errors, isValid, isSubmitted },
+    formState: { errors, isValid, isSubmitted, dirtyFields },
     handleSubmit,
     watch,
   } = useForm<IFormInputs>({});
@@ -54,6 +54,19 @@ const Form = () => {
   const password = useRef({});
   password.current = watch("password");
   const disabledButtonOrange = !isValid && isSubmitted;
+
+  const isDisabled = () => {
+    return !(
+      dirtyFields.firstName &&
+      dirtyFields.lastName &&
+      dirtyFields.email &&
+      dirtyFields.password &&
+      dirtyFields.repeatPassword &&
+      dirtyFields.agreement
+    );
+  };
+
+  const disabled = isDisabled() || disabledButtonOrange;
 
   const inputFirstName = register("firstName", {
     required: true,
@@ -190,7 +203,7 @@ const Form = () => {
             customClassName={button.buttonClass}
             buttonLabel={labels.form.buttonLabel}
             type={buttonType}
-            isDisabled={disabledButtonOrange}
+            isDisabled={disabled}
           />
         </form>
         <h3>{labels.form.text}</h3>
