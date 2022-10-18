@@ -5,7 +5,7 @@ export interface IButtonPrimaryType {
     buttonLabel?: string;
     customClassName: string;
     type: 'submit' | 'reset' | 'button';
-    isDisabled?: boolean;
+    isDisabled?:boolean;
     onClick?: () => void;
 }
 
@@ -20,6 +20,7 @@ return(
     disabled={isDisabled}
     onClick={onClick}>
     {buttonLabel}
+    
     </button>
 )
 
