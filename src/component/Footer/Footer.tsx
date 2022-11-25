@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import labels from "../../labels";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 import { button } from "../Form/FormHandler";

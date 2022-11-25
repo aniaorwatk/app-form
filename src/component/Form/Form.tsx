@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import  { useRef} from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import labels, {
   maxCharacters,
@@ -9,8 +9,6 @@ import labels, {
 import Input from "../Input/Input";
 import {
   button,
-  eyeOffPassword,
-  eyeOnPassword,
   formInputsType,
   getErrorFirstName,
   getErrorsAgreement,
@@ -107,23 +105,6 @@ const Form = () => {
 
   const inputAgremeent = register("agreement", { required: true });
 
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePassword = () => {
-    setPasswordShown(!passwordShown);
-  };
-
-  const [passwordRepeatShown, setPasswordRepeatShown] = useState(false);
-  const togglePasswordRepeat = () => {
-    setPasswordRepeatShown(!passwordRepeatShown);
-  };
-
-  const passwordType = `${passwordShown ? "text" : "password"}`;
-  const passwordRepeatType = `${passwordRepeatShown ? "text" : "password"}`;
-  const imgEye = `${passwordShown ? eyeOffPassword : eyeOnPassword}`;
-  const imgEyeRepeat = `${
-    passwordRepeatShown ? eyeOffPassword : eyeOnPassword
-  }`;
-
   const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
 
   return (
@@ -163,12 +144,10 @@ const Form = () => {
             labelType={formInputsType.typePassword}
             label={labels.form.labelPassword}
             placeholder={labels.form.placeholderPassword}
-            inputType={passwordType}
             inputRequired={inputPassword}
-            eyeImage={imgEye}
             altEyeInput={labels.form.altImgInPassword}
-            handleClick={togglePassword}
             nameInput={nameInputs.namePassword}
+            inputPassword={true}
           />
           <Input
             errors={getErrorsRepeatPassword({
@@ -177,12 +156,10 @@ const Form = () => {
             labelType={formInputsType.typeRepeatPassword}
             label={labels.form.labelRepeatPassword}
             placeholder={labels.form.placeholderRepeatPassword}
-            inputType={passwordRepeatType}
             inputRequired={inputRepeatPassword}
-            eyeImage={imgEyeRepeat}
             altEyeInput={labels.form.altImgInRepeatPassword}
-            handleClick={togglePasswordRepeat}
             nameInput={nameInputs.nameRepeatPassword}
+            inputPassword={true}
           />
           <InputTextarea
             errors={getErrorsOpinion({ opinion: errors.opinion })}
