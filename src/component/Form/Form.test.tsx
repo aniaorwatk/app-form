@@ -1,7 +1,5 @@
 import {
   fireEvent,
-  getByAltText,
-  getByText,
   render,
   screen,
 } from "@testing-library/react";

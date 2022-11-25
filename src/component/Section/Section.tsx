@@ -1,4 +1,3 @@
-import React from "react";
 import labels from "../../labels";
 import PhotoAE from "../../assets/Albert-Einstein.jpg";
 import PhotoD from "../../assets/Dalajlama.jpg";

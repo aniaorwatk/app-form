@@ -1,5 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
+import { eyeOffPassword, eyeOnPassword } from "../Form/FormHandler";
 import "./Inputs.scss";
 
 interface IInputType {
@@ -7,29 +8,35 @@ interface IInputType {
   labelType: string;
   label: string;
   placeholder: string;
-  inputType: string;
+  inputType?: string;
   nameInput: string;
   inputRequired: UseFormRegisterReturn<string>;
-  eyeImage?: string;
   altEyeInput?: string;
-  handleClick?: () => void;
   autocomplete?: string;
   classNameInput?: string;
+  inputPassword?: boolean;
 }
 
 const Input = ({
+  inputPassword,
   errors,
   labelType,
   label,
   placeholder,
   inputType,
   inputRequired,
-  eyeImage,
   altEyeInput,
-  handleClick,
   nameInput,
   autocomplete,
 }: IInputType) => {
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
+  const passwordType = `${passwordShown ? "text" : "password"}`;
+  const imgEye = `${passwordShown ? eyeOffPassword : eyeOnPassword}`;
+
   return (
     <div className="InputBox">
       <div className="InputBox__box">
@@ -37,18 +44,22 @@ const Input = ({
           {label}
         </label>
         <div className="InputBox__box-filed">
-          <img
-            className="InputBox__box-filed--img"
-            src={eyeImage}
-            alt={altEyeInput}
-            onClick={handleClick}
-          />
+          {inputPassword ? (
+            <img
+              className="InputBox__box-filed--img"
+              src={imgEye}
+              alt={altEyeInput}
+              onClick={togglePassword}
+            />
+          ) : (
+            ""
+          )}
           <input
             className={`InputBox__box-filed--input  ${
               errors ? "errorInput" : ""
             }`}
             id={labelType}
-            type={inputType}
+            type={inputPassword ? passwordType : inputType}
             {...inputRequired}
             placeholder={placeholder}
             name={nameInput}
